@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header
+      class="bg-black shadow-gray-900 fixed w-full z-50 top-0 hidding-animation hidden"
+    >
+      <div class="h-16 container text-white justify-between items-center flex">
+        <div class="md:w-1/2">bekina</div>
+        <div class="flex md:hidden">
+          <button
+            id="menu-btn"
+            aria-label="menu toggle"
+            class="h-8 w-8 flex items-center justify-center relative bg-transparent border-none"
+          >
+            <span
+              id="top-line"
+              class="absolute top-2 bg-white w-6 h-0.5 rounded-sm transition-all duration-300 ease-in-out origin-center"
+            ></span>
+            <span
+              id="medium-line"
+              class="absolute top-1/2 -translate-y-1/2 bg-white w-6 h-0.5 rounded-sm transition-all duration-300 ease-in-out origin-center"
+            ></span>
+            <span
+              id="bottom-line"
+              class="absolute bottom-2 bg-white w-6 h-0.5 rounded-sm transition-all duration-300 ease-in-out origin-center"
+            ></span>
+          </button>
+
+          <nav
+            id="mobile-nav"
+            aria-label="Mobile navigation"
+            class="hidden absolute bg-gray-50"
+          >
+            <a class="flex" href="#base">Base</a>
+            <a class="flex" href="#map">Map</a>
+            <a class="flex" href="#armory">Armory</a>
+            <a class="flex" href="#wins">Wins</a>
+            <a class="flex" href="#linkup">Link-up</a>
+          </nav>
+        </div>
+        <div class="hidden md:flex">
+          <nav class="" aria-label="Menu navigation">
+            <a class="md:w-1/5" href="#base">Base</a>
+            <a class="md:w-1/5" href="#map">Map</a>
+            <a class="md:w-1/5" href="#armory">Armory</a>
+            <a class="md:w-1/5" href="#wins">Wins</a>
+            <a class="md:w-1/5" href="#linkup">Link-up</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- base section -->
+    <section>
+      <video
+        autoplay
+        muted
+        loop
+        class="absolute overflow-hidden hidding-animation show -z-50 left-0 top-0 h-[100vh] w-[100vw] object-cover"
+      >
+        <source src="./assets/videos/bg_video_hero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="h-[100vh] container flex justify-center items-center">
+        <div class="max-w-lg px-5 md:mx-7 lg:mx-9">
+          <p class="text-white text-xl font-mono leading-relaxed">
+            <span id="typed-text" class=""></span>
+            <span id="blink-cursor">|</span>
+          </p>
+          <div id="base-cta" class="justify-self-center hidden">
+            <button
+              class="bg-gray-950 slide slidding-animate text-white px-5 py-2 text-sm mt-3 rounded-xl shadow-sm shadow-slate-700 me-12"
+            >
+              Launch&nbsp;Mission&nbsp;->
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="text-white mt-[100px]">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis,
+      laudantium similique quas iusto consectetur incidunt reprehenderit laborum
+      accusamus. Saepe reprehenderit rem commodi maiores fuga sit delectus
+      corporis quos quae.
+    </p>
+
+    <p class="text-white mt-[100px]">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis,
+      laudantium similique quas iusto consectetur incidunt reprehenderit laborum
+      accusamus. Saepe reprehenderit rem commodi maiores fuga sit delectus
+      corporis quos quae.
+    </p>
+    <script>
+      const isToggled = false;
+      const text =
+        "In the digital arena, strategy is code, execution is deployment, and victory belongs to those who strike first with precision.";
+      const speed = 90; // typing speed in ms
+      let index = 0;
+      const target = document.getElementById("typed-text");
+      const baseCta = document.getElementById("base-cta");
+
+      function type() {
+        if (index < text.length) {
+          target.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+
+          baseCta.classList.add("hidden");
+          baseCta.classList.remove("flex");
+        } else {
+          // Optional: Stop blinking cursor after typing is complete
+          target.classList.remove("border-r-2");
+          startCursorBlinking();
+
+          baseCta.classList.remove("hidden");
+          baseCta.classList.add("flex");
+        }
+      }
+
+      type();
+
+      const cursor = document.getElementById("blink-cursor");
+
+      function startCursorBlinking() {
+        setInterval(() => {
+          cursor.style.visibility =
+            cursor.style.visibility === "hidden" ? "visible" : "hidden";
+        }, 500);
+      }
+      const header = document.querySelector("header");
+      const video = document.querySelector("video");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.remove("hidden");
+
+          header.classList.add("show");
+          header.classList.remove("hide");
+
+          video.classList.add("hide");
+          video.classList.remove("show");
+        } else {
+          if (isToggled) menuToggle();
+          header.classList.remove("show");
+          header.classList.add("hide");
+
+          video.classList.remove("hide");
+          video.classList.add("show");
+        }
+      });
+
+      //menu btn
+      const menuBtn = document.getElementById("menu-btn");
+      const topLine = document.getElementById("top-line");
+      const mediumLine = document.getElementById("medium-line");
+      const bottomLine = document.getElementById("bottom-line");
+      const mobileNav = document.getElementById("mobile-nav");
+      menuBtn.addEventListener(
+        "click",
+        (menuToggle = () => {
+          mediumLine.classList.toggle("hidden");
+
+          topLine.classList.toggle("rotate-45");
+          topLine.classList.toggle("top-1/2");
+          topLine.classList.toggle("-translate-y-1/2");
+          topLine.classList.toggle("top-2"); // to remove original offset
+
+          bottomLine.classList.toggle("-rotate-45");
+          bottomLine.classList.toggle("bottom-2"); // to remove original offset
+          bottomLine.classList.toggle("top-1/2");
+          bottomLine.classList.toggle("-translate-y-1/2");
+
+          mobileNav.classList.toggle("hidden");
+          isToggled = !isToggled;
+        })
+      );
+    </script>
+  </body>
+</html>

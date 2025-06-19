@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply bg-black;
+    }
+}
+
+@layer components {
+    .container {
+        @apply px-4 md:px-6 max-w-7xl mx-auto;
+    }
+
+    .hiding-animation {
+        @apply duration-1000 ease-in bg-opacity-90 transition-all delay-500;
+    }
+
+    .hide {
+        @apply opacity-0 pointer-events-none;
+    }
+
+    .show {
+        @apply opacity-100 pointer-events-auto;
+    }
+
+    .slide {
+        @apply transition-all delay-300 duration-700 ease-in-out;
+
+    }
+
+    .slidding-animate {
+        animation: slidding 1s ease-in-out forwards;
+    }
+}
+
+@keyframes slidding {
+    0% {
+        opacity: 0.2;
+        transform: translateX(-200%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
