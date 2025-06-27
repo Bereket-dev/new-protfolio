@@ -7,10 +7,13 @@
   </head>
   <body>
     <header
-      class="bg-black shadow-gray-900 fixed w-full z-50 top-0 hidding-animation hidden"
+      class="bg-transparent shadow-gray-900 fixed w-full z-50 top-0 hidding-animation hidden"
     >
-      <div class="h-16 container text-white justify-between items-center flex">
-        <div class="md:w-1/2">bekina</div>
+      <div
+        class="h-16 backdrop-blur-lg container text-white relative justify-between items-center flex"
+      >
+        <div class="">bekina</div>
+        <!-- mobile navigation menu-btn-->
         <div class="flex md:hidden">
           <button
             id="menu-btn"
@@ -30,37 +33,99 @@
               class="absolute bottom-2 bg-white w-6 h-0.5 rounded-sm transition-all duration-300 ease-in-out origin-center"
             ></span>
           </button>
-
-          <nav
-            id="mobile-nav"
-            aria-label="Mobile navigation"
-            class="hidden absolute bg-gray-50"
-          >
-            <a class="flex" href="#base">Base</a>
-            <a class="flex" href="#map">Map</a>
-            <a class="flex" href="#armory">Armory</a>
-            <a class="flex" href="#wins">Wins</a>
-            <a class="flex" href="#linkup">Link-up</a>
-          </nav>
         </div>
-        <div class="hidden md:flex">
-          <nav class="" aria-label="Menu navigation">
-            <a class="md:w-1/5" href="#base">Base</a>
-            <a class="md:w-1/5" href="#map">Map</a>
-            <a class="md:w-1/5" href="#armory">Armory</a>
-            <a class="md:w-1/5" href="#wins">Wins</a>
-            <a class="md:w-1/5" href="#linkup">Link-up</a>
+        <!-- desktop-navigation -->
+        <div class="hidden md:flex justify-end">
+          <nav class="flex w-full" aria-label="Menu navigation">
+            <a
+              class="hover:text-white hover:border-b-2 hover:border-b-white hover:font-bold"
+              href="#base"
+              >Base</a
+            >
+            <a
+              class="hover:text-white md:ms-4 lg:ms-8 xl:ms-10 2xl:ms-12 hover:border-b-2 hover:border-b-white hover:font-bold"
+              href="#map"
+              >Map</a
+            >
+
+            <a
+              class="hover:text-white md:ms-4 lg:ms-8 xl:ms-10 2xl:ms-12 hover:border-b-2 hover:border-b-white hover:font-bold"
+              href="#wins"
+              >Wins</a
+            >
+            <a
+              class="hover:text-white md:ms-4 lg:ms-8 xl:ms-10 2xl:ms-12 hover:border-b-2 hover:border-b-white hover:font-bold"
+              href="#weopens"
+              >Weopens</a
+            >
+
+            <a
+              class="hover:text-white md:ms-4 lg:ms-8 xl:ms-10 2xl:ms-12 hover:border-b-2 hover:border-b-white hover:font-bold"
+              href="#linkup"
+              >Link-up</a
+            >
           </nav>
         </div>
       </div>
+      <!-- mobile navigation -->
+      <nav
+        id="mobile-nav"
+        aria-label="Mobile navigation"
+        class="hidden text-white backdrop-blur-lg top-16 absolute w-full"
+      >
+        <a class="flex justify-center py-2" href="#base">Base</a>
+        <a
+          class="flex justify-center py-2 border-t-2 border-slate-300"
+          href="#map"
+          >Map</a
+        >
+        <a
+          class="flex justify-center py-2 border-t-2 border-slate-300"
+          href="#armory"
+          >Armory</a
+        >
+        <a
+          class="flex justify-center py-2 border-t-2 border-slate-300"
+          href="#wins"
+          >Wins</a
+        >
+        <a
+          class="flex justify-center py-2 border-t-2 border-slate-300"
+          href="#linkup"
+          >Link-up</a
+        >
+      </nav>
     </header>
 
-    <!-- base section -->
-    <section>
+    <!-- rendering page -->
+    <section
+      id="renderSection"
+      class="fixed inset-0 z-50 bg-black flex flex-col justify-center items-center gap-6"
+    >
+      <div class="flex flex-col items-center">
+        <span
+          class="text-red-500 text-lg font-mono tracking-wide mb-4 animate-pulse"
+        >
+          Initializing Digital Launch...
+        </span>
+        <div
+          class="w-80 lg:w-[30rem] h-6 relative border-2 border-red-500/50 rounded-2xl overflow-hidden shadow-lg shadow-red-500/10"
+        >
+          <div
+            id="loading-bar"
+            class="absolute h-full bg-gradient-to-r from-red-500 to-rose-500 animate-loading-bar rounded-xl"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="base" class="hidden">
       <video
         autoplay
         muted
         loop
+        id="baseVideo"
         class="absolute overflow-hidden hidding-animation show -z-50 left-0 top-0 h-[100vh] w-[100vw] object-cover"
       >
         <source src="./assets/videos/bg_video_hero.mp4" type="video/mp4" />
@@ -84,49 +149,596 @@
       </div>
     </section>
 
-    <p class="text-white mt-[100px]">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis,
-      laudantium similique quas iusto consectetur incidunt reprehenderit laborum
-      accusamus. Saepe reprehenderit rem commodi maiores fuga sit delectus
-      corporis quos quae.
-    </p>
+    <section id="map" class="hidden">
+      <div class="container my-2 text-center">
+        <div class="relative h-auto max-w-lg mx-auto">
+          <img
+            src="./assets/images/portfolio-img.png"
+            alt="Bereket Desalegn"
+            class="h-auto w-full"
+          />
+          <div
+            class="absolute bottom-0 w-full left-0 h-14 bg-gradient-to-t from-black via-black/50 to-transparent blur-sm"
+          ></div>
+        </div>
 
-    <p class="text-white mt-[100px]">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis,
-      laudantium similique quas iusto consectetur incidunt reprehenderit laborum
-      accusamus. Saepe reprehenderit rem commodi maiores fuga sit delectus
-      corporis quos quae.
-    </p>
+        <h1 class="text-amber-200 font-bold text-4xl tracking-wider uppercase">
+          COMMANDER BEREKET
+        </h1>
+        <h2 class="text-teal-600 font-medium text-2xl">
+          STRATEGIC DIGITAL COMMANDER
+        </h2>
+        <p class="text-white text-sm max-w-sm mx-auto mb-3 mt-2">
+          Deploying targeted digital operations to conquer market share,
+          neutralize competition, and secure revenue objectives for businesses
+          in hostile commercial environments.
+        </p>
+        <div
+          class="bg-opacity text-teal-600 border border-teal-600 w-fit mx-auto py-1 px-4 rounded-xl"
+        >
+          Security-Clearance Level: Full-Stack Dominance
+        </div>
+      </div>
+      <div class="container mt-12 mb-2">
+        <div class="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto">
+          <span class="text-xl xl:text-2xl text-amber-400"
+            >THE BATTLE FIELD:</span
+          >
+          <span class="text-lg text-teal-500"
+            >MODERN DEVELOPMENT CHALLENGES</span
+          >
+        </div>
+      </div>
+
+      <div class="container">
+        <div
+          class="h-1 flex rounded-md max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto"
+        >
+          <div class="w-1/3 bg-teal-500"></div>
+          <div class="w-2/3 border border-teal-600"></div>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-4 py-8">
+        <div class="max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center"
+          >
+            <div
+              class="flex flex-col items-center text-center p-5 w-full max-w-xs min-h-[360px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/shield-shaded.svg"
+                alt="shield icon"
+                class="w-12 h-12 mb-4"
+              />
+              <h2 class="text-lg font-semibold mb-3">
+                PHP & Node.js Defense Systems
+              </h2>
+              <p class="text-sm leading-relaxed">
+                Securing API supply lines against database breaches and server
+                overloads with Express middleware armor and Laravel Sanctum
+                fortifications. Neutralizing 504 errors through elastic scaling.
+              </p>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 w-full max-w-xs min-h-[360px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/cross-hair-ui.svg"
+                alt="cross hair icon"
+                class="w-12 h-12 mb-4"
+              />
+              <h2 class="text-lg font-semibold mb-3">Frontend Assault</h2>
+              <p class="text-sm leading-relaxed">
+                Eradicating mobile responsiveness traps and CSS specificity wars
+                with utility-first Tailwind strikes. Deploying Bootstrap
+                reinforcements for cross-browser compatibility missions.
+              </p>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 w-full max-w-xs min-h-[360px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/rocket-takeoff-fill.svg"
+                alt="rocket-takeoff-fill icon"
+                class="w-12 h-12 mb-4"
+              />
+              <h2 class="text-lg font-semibold mb-3">Deployment Logistics</h2>
+              <p class="text-sm leading-relaxed">
+                Executing blue-green deployments via Laravel Forge.
+                Containerizing mutinous environments with Docker. Optimizing CSS
+                payloads with Tailwind's minify commandos for lightning-fast
+                insertions.
+              </p>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 w-full max-w-xs min-h-[360px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/gear-fill.svg"
+                alt="gear icon"
+                class="w-12 h-12 mb-4"
+              />
+              <h2 class="text-lg font-semibold mb-3">
+                Legacy to Node.js Migration
+              </h2>
+              <p class="text-sm leading-relaxed">
+                Executing strategic migrations from outdated platforms to modern
+                Node.js ecosystems. Converting monolithic applications into
+                scalable microservices with Express API gateways.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wins" class="mt-20 bg-gray-950 text-white hidden">
+      <div
+        class="container max-w-xl md:max-w-3xl xl:max-w-5xl mx-auto px-6 py-16"
+      >
+        <h1
+          class="text-4xl font-bold text-amber-200 text-center tracking-wider uppercase mb-16"
+        >
+          Wins
+        </h1>
+
+        <div class="xl:max-w-6xl mx-auto space-y-16">
+          <div
+            class="bg-gradient-to-br from-gray-900/80 to-gray-800/60 border border-gray-700 rounded-2xl shadow-xl p-8 md:p-12 font-mono hover:shadow-amber-100/10 transition-shadow duration-300"
+          >
+            <h2 class="text-2xl md:text-3xl font-semibold mb-1">
+              1. Restaurant Website
+            </h2>
+            <h4 class="text-lg text-gray-400 mb-6">(Bootstrap Frontend)</h4>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <img
+                  src="./assets/images/restaurant.png"
+                  alt="Restaurant Project"
+                  class="w-full rounded-xl shadow-md shadow-gray-900 hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <div class="space-y-8">
+                <div>
+                  <h3 class="text-xl font-semibold text-amber-500 mb-2">
+                    The Challenge
+                  </h3>
+                  <p class="text-gray-300 leading-relaxed">
+                    Modern diners expect instant menu access and reservations.
+                    The previous site had a 62% bounce rate on mobile devices
+                    due to poor usability.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold text-amber-500 mb-2">
+                    My Solution
+                  </h3>
+                  <ul class="list-disc list-inside text-gray-300 space-y-2">
+                    <li>
+                      Responsive Bootstrap framework with animated menu
+                      transitions
+                    </li>
+                    <li>Table booking widget with real-time pricing engine</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-gray-900/80 to-gray-800/60 border border-gray-700 rounded-2xl shadow-xl p-8 md:p-12 font-mono hover:shadow-amber-100/10 transition-shadow duration-300"
+          >
+            <h2 class="text-2xl md:text-3xl font-semibold mb-1">
+              2. Stadium Website
+            </h2>
+            <h4 class="text-lg text-gray-400 mb-6">(PHP Fullstack)</h4>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div class="flex gap-3 h-min">
+                <img
+                  src="./assets/images/stadium-mobile.png"
+                  alt="Stadium Mobile"
+                  class="w-1/5 object-cover rounded-l-xl shadow-md shadow-gray-900 hover:scale-105 transition-transform duration-300"
+                />
+                <img
+                  src="./assets/images/stadium-desktop.png"
+                  alt="Stadium Desktop"
+                  class="w-4/5 object-cover rounded-r-xl shadow-md shadow-gray-900 hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <div class="space-y-8">
+                <div>
+                  <h3 class="text-xl font-semibold text-amber-500 mb-2">
+                    The Challenge
+                  </h3>
+                  <p class="text-gray-300 leading-relaxed">
+                    Manual booking errors caused $50 in monthly refunds. The
+                    team lacked a centralized management system.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold text-amber-500 mb-2">
+                    My Solution
+                  </h3>
+                  <ul class="list-disc list-inside text-gray-300 space-y-2">
+                    <li>
+                      PHP/MySQL backend with role-based access (fan/staff/admin)
+                    </li>
+                    <li>Real-time seat mapping with dynamic pricing engine</li>
+                    <li>Concession ordering via QR-coded tickets</li>
+                    <li>Automated event reporting dashboard</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="weopens" class="mt-16 hidden">
+      <div class="container mx-auto px-4 py-8">
+        <h1
+          class="text-amber-200 font-bold text-4xl text-center tracking-wider uppercase mb-16"
+        >
+          MY WEOPENS
+        </h1>
+        <div class="xl:max-w-5xl mx-auto mt-10">
+          <div
+            class="grid grid-cols-[repeat(auto-fit,_200px)] gap-4 justify-center"
+          >
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/node-js(3).svg"
+                alt="node-js icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">Node.js</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/php.svg"
+                alt="php icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">PHP</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/mongodb-icon.svg"
+                alt="mongodb icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">MONGO DB</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/mysql-icon.svg"
+                alt="mysql icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">MYSQL</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/tailwindcss-icon.svg"
+                alt="tailwindcss icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">TAILWIND CSS</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/bootstrap-fill.svg"
+                alt="mysql icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">BOOTSTRAP</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/html-icon.svg"
+                alt="HTML5 icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">HTML5</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/css-icon.svg"
+                alt="css3 icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">CSS3</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/js-icon.svg"
+                alt="javascript icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">JAVASCRIPT</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/github-icon(2).svg"
+                alt="github icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">GITHUB</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/vs-code.svg"
+                alt="vs code icon"
+                class="w-12 h-12 mb-3"
+              />
+              <h2 class="text-lg font-semibold">VS CODE</h2>
+            </div>
+
+            <div
+              class="flex flex-col items-center text-center p-5 rounded-3xl bg-black/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)] hover:shadow-[0_12px_40px_0_rgba(31,38,135,0.3)] transition-transform duration-300 hover:scale-105 text-white font-mono"
+            >
+              <img
+                src="./assets/icons/figma-icon.svg"
+                alt="Figma icon"
+                class="w-12 h-12 mb-4"
+              />
+              <h2 class="text-lg font-semibold tracking-wide">FIGMA</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="linkup" class="mt-20 hidden">
+      <div class="container mx-auto">
+        <h1
+          class="text-9xl font-normal text-transparent text-stroke-2 text-center mb-16"
+        >
+          Let's <br />Link Up
+        </h1>
+
+        <div
+          class="grid grid-cols-[repeat(auto-fit,_190px)] gap-12 justify-center"
+        >
+          <a
+            href="https://t.me/bekiphila"
+            target="_blank"
+            class="relative group flex items-center justify-center h-[200px] p-[2px] bg-gradient-to-t from-[#0c2520] to-[#f97316]/70 rounded-2xl hover:bg-transparent overflow-hidden shadow-md hover:shadow-gray-950 transition-shadow duration-500"
+          >
+            <div
+              class="absolute inset-0 h-full w-full rounded-2xl bg-transparent transition-all duration-500 group-hover:bg-[conic-gradient(at_50%_50%,_transparent,_#f97316,_transparent)] group-hover:animate-spin-slow"
+            ></div>
+            <div
+              class="relative z-10 flex flex-col h-full w-full items-center justify-center text-center bg-black/90 hover:bg-black rounded-2xl backdrop-blur-sm transition-colors duration-300"
+            >
+              <img
+                src="./assets/icons/chat-dots.svg"
+                alt="telegram icon"
+                class="w-16 h-16 mb-8"
+              />
+              <h2 class="text-2xl font-sans">Telegram</h2>
+            </div>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/bereket-desalegn-a120a6362/"
+            target="_blank"
+            class="relative group flex items-center justify-center h-[200px] p-[2px] bg-gradient-to-t from-[#0c2520] to-[#88bedb]/70 rounded-2xl hover:bg-transparent overflow-hidden shadow-md hover:shadow-gray-950 transition-shadow duration-500"
+          >
+            <div
+              class="absolute inset-0 h-full w-full rounded-2xl bg-transparent transition-all duration-500 group-hover:bg-[conic-gradient(at_50%_50%,_transparent,_#88bedb,_transparent)] group-hover:animate-spin-slow"
+            ></div>
+            <div
+              class="relative z-10 flex flex-col h-full w-full items-center justify-center text-center bg-black/90 hover:bg-black rounded-2xl backdrop-blur-sm transition-colors duration-300"
+            >
+              <img
+                src="./assets/icons/linkedin.svg"
+                alt="linkedin icon"
+                class="w-14 h-14 rounded-xl border-4 border-[#88bedb] mb-8"
+              />
+
+              <h2 class="text-2xl font-sans">LinkedIn</h2>
+            </div>
+          </a>
+
+          <a
+            href="https://github.com/Bereket-dev"
+            target="_blank"
+            class="relative group flex items-center justify-center h-[200px] p-[2px] bg-gradient-to-t from-[#0c2520] to-[#69f0d2]/70 rounded-2xl hover:bg-transparent overflow-hidden shadow-md hover:shadow-gray-950 transition-shadow duration-500"
+          >
+            <div
+              class="absolute inset-0 h-full w-full rounded-2xl bg-transparent transition-all duration-500 group-hover:bg-[conic-gradient(at_50%_50%,_transparent,_#69f0d2,_transparent)] group-hover:animate-spin-slow"
+            ></div>
+
+            <div
+              class="relative z-10 flex flex-col h-full w-full items-center justify-center text-center bg-black/90 hover:bg-black rounded-2xl backdrop-blur-sm transition-colors duration-300"
+            >
+              <img
+                src="./assets/icons/github.svg"
+                alt="GitHub Icon"
+                class="w-16 h-16 mb-4 bg-[#69f0d2] rounded-full border-4 border-[#69f0d2] shadow-md"
+              />
+              <h2 class="text-xl font-semibold tracking-wide text-white">
+                GitHub
+              </h2>
+            </div>
+          </a>
+        </div>
+
+        <div class="relative text-left mt-6 flex justify-center">
+          <div>
+            <button
+              id="dropdownBtn"
+              type="button"
+              class="inline-flex justify-between w-48 rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-black text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            >
+              Messages
+              <svg
+                class="-mr-1 ml-2 h-5 w-5 text-orange-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            id="dropdownMenu"
+            class="hidden absolute top-8 z-10 mt-2 w-48 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5"
+          >
+            <div class="py-1">
+              <a
+                target="_blank"
+                href="https://t.me/bekiphila"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                >Messages</a
+              >
+              <a
+                target="_blank"
+                href="tel:+251970344833"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                >Calls</a
+              >
+              <a
+                target="_blank"
+                href="mailto:bereketdesalegn097@gmail.com"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                >Emails</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-32 mb-6 hidden">
+      <p class="text-md font-mono text-gray-400 text-center">
+        Bereket Desalegn. <span class="text-lg">&copy;</span>2025
+      </p>
+    </footer>
+
     <script>
-      const isToggled = false;
-      const text =
-        "In the digital arena, strategy is code, execution is deployment, and victory belongs to those who strike first with precision.";
-      const speed = 90; // typing speed in ms
-      let index = 0;
+      const renderSection = document.getElementById("renderSection");
+      const baseSection = document.getElementById("base");
+      const mapSection = document.getElementById("map");
+      const winsSection = document.getElementById("wins");
+      const weopensSection = document.getElementById("weopens");
+      const linkupSection = document.getElementById("linkup");
+      const video = document.getElementById("baseVideo");
+
+      const header = document.querySelector("header");
+      const footer = document.querySelector("footer");
+
+      const dropdownBtn = document.getElementById("dropdownBtn");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
       const target = document.getElementById("typed-text");
       const baseCta = document.getElementById("base-cta");
+      const cursor = document.getElementById("blink-cursor");
+
+      const menuBtn = document.getElementById("menu-btn");
+      const topLine = document.getElementById("top-line");
+      const mediumLine = document.getElementById("medium-line");
+      const bottomLine = document.getElementById("bottom-line");
+      const mobileNav = document.getElementById("mobile-nav");
+
+      let isToggled = false;
+      const text =
+        "In the digital arena, strategy is code, execution is deployment, and victory belongs to those who strike first with precision.";
+      const speed = 90;
+      let index = 0;
+
+      video.addEventListener("canplaythrough", async () => {
+        const loadingBar = document.getElementById("loading-bar");
+
+        loadingBar.classList.remove("animate-loading-bar");
+        loadingBar.style.transition = "width 1s ease-in-out";
+        loadingBar.style.width = "100%";
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        renderSection.classList.add("hidden");
+        baseSection.classList.remove("hidden");
+        mapSection.classList.remove("hidden");
+        winsSection.classList.remove("hidden");
+        weopensSection.classList.remove("hidden");
+        linkupSection.classList.remove("hidden");
+        header.classList.remove("hidden");
+        footer.classList.remove("hidden");
+
+        type();
+      });
+
+      dropdownBtn.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("hidden");
+      });
 
       function type() {
         if (index < text.length) {
           target.innerHTML += text.charAt(index);
           index++;
           setTimeout(type, speed);
-
           baseCta.classList.add("hidden");
           baseCta.classList.remove("flex");
         } else {
-          // Optional: Stop blinking cursor after typing is complete
           target.classList.remove("border-r-2");
           startCursorBlinking();
-
           baseCta.classList.remove("hidden");
           baseCta.classList.add("flex");
         }
       }
-
-      type();
-
-      const cursor = document.getElementById("blink-cursor");
 
       function startCursorBlinking() {
         setInterval(() => {
@@ -134,49 +746,35 @@
             cursor.style.visibility === "hidden" ? "visible" : "hidden";
         }, 500);
       }
-      const header = document.querySelector("header");
-      const video = document.querySelector("video");
 
       window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
           header.classList.remove("hidden");
-
           header.classList.add("show");
           header.classList.remove("hide");
-
           video.classList.add("hide");
           video.classList.remove("show");
         } else {
           if (isToggled) menuToggle();
           header.classList.remove("show");
           header.classList.add("hide");
-
           video.classList.remove("hide");
           video.classList.add("show");
         }
       });
 
-      //menu btn
-      const menuBtn = document.getElementById("menu-btn");
-      const topLine = document.getElementById("top-line");
-      const mediumLine = document.getElementById("medium-line");
-      const bottomLine = document.getElementById("bottom-line");
-      const mobileNav = document.getElementById("mobile-nav");
       menuBtn.addEventListener(
         "click",
         (menuToggle = () => {
           mediumLine.classList.toggle("hidden");
-
           topLine.classList.toggle("rotate-45");
           topLine.classList.toggle("top-1/2");
           topLine.classList.toggle("-translate-y-1/2");
-          topLine.classList.toggle("top-2"); // to remove original offset
-
+          topLine.classList.toggle("top-2");
           bottomLine.classList.toggle("-rotate-45");
-          bottomLine.classList.toggle("bottom-2"); // to remove original offset
+          bottomLine.classList.toggle("bottom-2");
           bottomLine.classList.toggle("top-1/2");
           bottomLine.classList.toggle("-translate-y-1/2");
-
           mobileNav.classList.toggle("hidden");
           isToggled = !isToggled;
         })
