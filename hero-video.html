@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Video – Bereket Desalegn</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Structured Data for Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Hero Background Video",
+        "description": "This is a featured background video from Bereket Desalegn's portfolio.",
+        "thumbnailUrl": "https://bereket-desalegn.vercel.app/src/assets/images/thumbnail.jpg",
+        "uploadDate": "2025-06-28T08:00:00+00:00",
+        "contentUrl": "https://bereket-desalegn.vercel.app/src/assets/videos/bg_video_hero.mp4",
+        "embedUrl": "https://bereket-desalegn.vercel.app/hero-video.html"
+      }
+    </script>
+  </head>
+  <body
+    class="bg-black text-white flex flex-col items-center justify-center min-h-screen p-6"
+  >
+    <h1 class="text-3xl md:text-4xl font-bold mb-4 text-amber-400 text-center">
+      Hero Video
+    </h1>
+    <p class="text-lg text-teal-300 text-center mb-6 max-w-2xl">
+      This is a featured video from Bereket Desalegn's portfolio. Watch and
+      enjoy the full motion background used in the hero section.
+    </p>
+
+    <video
+      controls
+      poster="https://bereket-desalegn.vercel.app/src/assets/images/thumbnail.jpg"
+      class="w-full max-w-3xl rounded-xl shadow-lg border border-emerald-400"
+    >
+      <source
+        src="https://bereket-desalegn.vercel.app/src/assets/videos/bg_video_hero.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+  </body>
+</html>
