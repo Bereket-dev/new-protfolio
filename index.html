@@ -144,6 +144,12 @@
     </section>
 
     <section id="base" class="hidden">
+      <img
+        id="baseImg"
+        src="./src/assets/images/thumbnail.jpg"
+        alt="war image"
+        class="absolute overflow-hidden hidding-animation show -z-50 left-0 top-0 h-[100vh] w-[100vw] object-cover"
+      />
       <video
         autoplay
         muted
@@ -701,6 +707,7 @@
       const weopensSection = document.getElementById("weopens");
       const linkupSection = document.getElementById("linkup");
       const video = document.getElementById("baseVideo");
+      const image = document.getElementById("baseImg");
 
       const header = document.querySelector("header");
       const footer = document.querySelector("footer");
@@ -724,24 +731,39 @@
       const speed = 90;
       let index = 0;
 
-      video.addEventListener("canplaythrough", async () => {
-        const loadingBar = document.getElementById("loading-bar");
+      let imageLoaded = false;
+      let videoReady = false;
+      function ShowUI() {
+        if (imageLoaded || videoReady) {
+          const loadingBar = document.getElementById("loading-bar");
 
-        loadingBar.classList.remove("animate-loading-bar");
-        loadingBar.style.transition = "width 1s ease-in-out";
-        loadingBar.style.width = "100%";
+          loadingBar.classList.remove("animate-loading-bar");
+          loadingBar.style.transition = "width 1s ease-in-out";
+          loadingBar.style.width = "100%";
 
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+          renderSection.classList.add("hidden");
+          baseSection.classList.remove("hidden");
+          mapSection.classList.remove("hidden");
+          winsSection.classList.remove("hidden");
+          weopensSection.classList.remove("hidden");
+          linkupSection.classList.remove("hidden");
+          footer.classList.remove("hidden");
 
-        renderSection.classList.add("hidden");
-        baseSection.classList.remove("hidden");
-        mapSection.classList.remove("hidden");
-        winsSection.classList.remove("hidden");
-        weopensSection.classList.remove("hidden");
-        linkupSection.classList.remove("hidden");
-        footer.classList.remove("hidden");
+          type();
+        }
+      }
 
-        type();
+      image.addEventListener("load", () => {
+        imageLoaded = true;
+        video.classList.add("hidden");
+        ShowUI();
+      });
+
+      video.addEventListener("canplaythrough", () => {
+        videoReady = true;
+        image.classList.add("hidden");
+        video.classList.remove("hidden");
+        ShowUI();
       });
 
       dropdownBtn.addEventListener("click", () => {
