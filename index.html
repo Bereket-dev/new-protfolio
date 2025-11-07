@@ -28,7 +28,7 @@
     <link href="./src/output.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body class="bg-black">
     <header
       class="bg-transparent shadow-gray-900 fixed w-full z-50 top-0 hidding-animation hidden"
     >
@@ -148,20 +148,22 @@
         id="baseImg"
         src="./src/assets/images/thumbnail.jpg"
         alt="war image"
-        class="absolute overflow-hidden hidding-animation show -z-50 left-0 top-0 h-[100vh] w-[100vw] object-cover"
+        class="absolute overflow-hidden hidding-animation show z-5 left-0 top-0 h-[100vh] w-[100vw] object-cover"
       />
       <video
         autoplay
         muted
         loop
         id="baseVideo"
-        class="absolute overflow-hidden hidding-animation show -z-50 left-0 top-0 h-[100vh] w-[100vw] object-cover"
+        class="absolute overflow-hidden hidding-animation show z-0 left-0 top-0 h-[100vh] w-[100vw] object-cover"
       >
         <source src="./src/assets/videos/bg_video_hero.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div class="h-[100vh] container flex justify-center items-center">
+      <div
+        class="h-[100vh] relative z-10 container flex justify-center items-center"
+      >
         <div class="max-w-lg px-5 md:mx-7 lg:mx-9">
           <p class="text-white text-xl font-mono leading-relaxed">
             <span id="typed-text" class=""></span>
@@ -170,7 +172,7 @@
           <div id="base-cta" class="justify-self-center hidden">
             <a
               href="#linkup"
-              class="bg-gray-950 slide slidding-animate text-white px-5 py-2 text-sm mt-3 rounded-xl shadow-sm shadow-slate-700 me-12 inline-block"
+              class="bg-gray-950 slide sliding-animate text-white px-5 py-2 text-sm mt-3 rounded-xl shadow-sm shadow-slate-700 me-12 inline-block"
             >
               Launch&nbsp;Mission&nbsp;-&gt;
             </a>
@@ -733,7 +735,11 @@
 
       let imageLoaded = false;
       let videoReady = false;
+      let shown = false;
       function ShowUI() {
+        if (shown) return;
+        shown = true;
+
         if (imageLoaded || videoReady) {
           const loadingBar = document.getElementById("loading-bar");
 
@@ -755,14 +761,14 @@
 
       image.addEventListener("load", () => {
         imageLoaded = true;
-        video.classList.add("hidden");
+        video.classList.add("hide");
         ShowUI();
       });
 
       video.addEventListener("canplaythrough", () => {
         videoReady = true;
+        video.classList.remove("hide");
         image.classList.add("hidden");
-        video.classList.remove("hidden");
         ShowUI();
       });
 
@@ -797,33 +803,42 @@
           header.classList.remove("hidden");
           header.classList.add("show");
           header.classList.remove("hide");
-          video.classList.add("hide");
-          video.classList.remove("show");
+          if (videoReady) {
+            video.classList.add("hide");
+            video.classList.remove("show");
+          } else {
+            image.classList.add("hide");
+            image.classList.remove("show");
+          }
         } else {
           if (isToggled) menuToggle();
           header.classList.remove("show");
           header.classList.add("hide");
-          video.classList.remove("hide");
-          video.classList.add("show");
+          if (videoReady) {
+            video.classList.remove("hide");
+            video.classList.add("show");
+          } else {
+            image.classList.remove("hide");
+            image.classList.add("show");
+          }
         }
       });
 
-      menuBtn.addEventListener(
-        "click",
-        (menuToggle = () => {
-          mediumLine.classList.toggle("hidden");
-          topLine.classList.toggle("rotate-45");
-          topLine.classList.toggle("top-1/2");
-          topLine.classList.toggle("-translate-y-1/2");
-          topLine.classList.toggle("top-2");
-          bottomLine.classList.toggle("-rotate-45");
-          bottomLine.classList.toggle("bottom-2");
-          bottomLine.classList.toggle("top-1/2");
-          bottomLine.classList.toggle("-translate-y-1/2");
-          mobileNav.classList.toggle("hidden");
-          isToggled = !isToggled;
-        })
-      );
+      function menuToggle() {
+        mediumLine.classList.toggle("hidden");
+        topLine.classList.toggle("rotate-45");
+        topLine.classList.toggle("top-1/2");
+        topLine.classList.toggle("-translate-y-1/2");
+        topLine.classList.toggle("top-2");
+        bottomLine.classList.toggle("-rotate-45");
+        bottomLine.classList.toggle("bottom-2");
+        bottomLine.classList.toggle("top-1/2");
+        bottomLine.classList.toggle("-translate-y-1/2");
+        mobileNav.classList.toggle("hidden");
+        isToggled = !isToggled;
+      }
+
+      menuBtn.addEventListener("click", menuToggle);
     </script>
   </body>
 </html>
